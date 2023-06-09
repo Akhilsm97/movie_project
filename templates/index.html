@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <a href="add_movies/" class="btn btn-success" style="margin:10px 20px 20px 200px;">Add Movies</a>
+  <!---------------Add Movies-------------------------->
+
+  <div class="container">
+    <div class="row">
+      <div class="col=md-4">
+        <div class="container">
+        <div class="row">
+          {% for i in det %}
+            <div class="col-md-4">
+                <div class="card shadow-sm animate__animated animate__zoomIn animate__delay-0s cart" style="width: 18rem; height:420px;">
+                  <img src="{{i.img.url}}" class="card-img-top" alt="..." style="height:200px;">
+                  <div class="card-body">
+                    <p class="card-text text-center" style="font-family:bold;"><b>{{i.movie_name}}</b></p>
+                    <p class="card-text text-center" style="font-family:bold;">{{i.desc}}</p>
+                    <a href="update/{{i.id}}" class="card-link btn btn-success pl-3">Update</a>
+                    <a href="delete/{{i.id}}" class="card-link btn btn-danger pl-3">Delete</a>
+                  </div>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  {% endblock %}

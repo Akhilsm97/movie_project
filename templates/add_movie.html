@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block body %}
+      <div class="container p-5">
+        <div class="card mx-auto   shadow p-3 mb-5 bg-white rounded" style="width: 450px;">
+          <div class="card-body">
+
+              {% for msg in messages %}
+                <div class="alert alert-info" role="alert">
+                    {{msg}}
+                </div>
+              {% endfor %}
+            <h5 class="card-title animate-charcter">ADD MOVIE</h5>
+            <div class="container" style="padding:15px 20px 20px 40px;">
+                <form method="post" action="/add_movies/" enctype="multipart/form-data">
+                    {% csrf_token%}
+
+                <div class="inner" >
+                    <label><b>Movie Name</b></label>
+                <input type="text" name="movie_name" class="form-control" placeholder="Enter Movie Name Here" style="margin-top:10px;">
+                </div>
+                <div class="inner" >
+                    <label><b>Movie Desc</b></label>
+                    <textarea name="desc" class="form-control" required></textarea>
+                </div>
+                <div class="inner" >
+                    <label><b>Movie Pic</b></label>
+                <input type="file" name="img" class="form-control"  style="margin-top:10px;">
+                </div>
+                    <button type="submit" name="submit" class="btn btn-success"  style="margin:15px 10px 10px 80px;">Register</button>
+                </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}
